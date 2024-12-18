@@ -14,6 +14,7 @@ const body = document.body;
 if(localStorage.getItem('mode') === null){
     localStorage.setItem("mode", '0');
 }
+
 render();
 
 formatToString.addEventListener("click", (e) => {
