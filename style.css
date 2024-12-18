@@ -119,6 +119,7 @@ label {
             0 0 10px #ff0000; /* Neon glow effect */
     font-family: 'Arial', sans-serif;
 }
+
 /* Add focus effect */
 .neon-textarea:focus {
     box-shadow:
