@@ -12,6 +12,21 @@ body{
     background-repeat: no-repeat;
 }
 
+.neon-text {
+    font-size: 4rem;
+    font-weight: bold;
+    color: #fff; /* Base color of the text */
+    text-shadow:
+            0 0 5px #ba2121,
+            0 0 10px #57071b,
+            0 0 20px #c51a47,
+            0 0 30px #8c6409,
+            0 0 40px #63530b,
+            0 0 50px #c51a47,
+            0 0 60px #c51a47; /* Neon glow effect */
+    font-family: 'Arial', sans-serif;
+}
+
 h1 {
     padding: 10px;
     text-align: center;
@@ -89,4 +104,23 @@ label {
 .dark-mode{
     background-color: white!important;
     color: black!important;
+}
+.gap-500{
+    gap: 500px;
+}
+
+.neon-textarea {
+    color: #fff; /* Text color */
+    background-color: #000; /* Black background */
+    border: 1px solid transparent; /* Transparent initial border */
+    border-radius: 2px; /* Rounded corners */
+    outline: none;
+    box-shadow:
+            0 0 10px #ff0000; /* Neon glow effect */
+    font-family: 'Arial', sans-serif;
+}
+/* Add focus effect */
+.neon-textarea:focus {
+    box-shadow:
+            0 0 20px #ff0000/* Enhanced neon glow on focus */
 }

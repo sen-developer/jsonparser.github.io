@@ -1,11 +1,14 @@
 // Find the <pre> element and set its content
 const jsonOutputElement = document.getElementById("jsonOutput");
 const jsonInputElement = document.getElementById("jsonInput");
+
 const formatToString = document.getElementById("formatToString");
 const formatToJson = document.getElementById("formatToJson");
 const darkMode = document.getElementById("darkMode");
 const animeMode = document.getElementById("animeMode");
+const resident = document.getElementById("resident");
 
+const buttons = document.querySelector(".buttons");
 const body = document.body;
 
 if(localStorage.getItem('mode') === null){
@@ -63,7 +66,16 @@ animeMode.addEventListener("click", (e) => {
     render();
 });
 
+resident.addEventListener("click", (e) => {
+    e.preventDefault();
+    localStorage.setItem("mode", "3");
+    render();
+});
+
 function render() {
+    buttons.classList.remove("gap-500");
+    jsonOutputElement.classList.remove("neon-textarea")
+    jsonInputElement.classList.remove("neon-textarea")
     if (localStorage.getItem("mode") === '0') {
         body.style.backgroundColor = "black";
         darkMode.classList.add("dark-mode");
@@ -72,8 +84,14 @@ function render() {
         body.style.backgroundColor = "white";
         darkMode.innerText = "Dark Mode";
         darkMode.classList.remove("dark-mode");
-    } else {
+    } else if(localStorage.getItem("mode") === '2'){
         body.style.backgroundColor = "none";
         body.style.backgroundImage = "url('./img/anime.jpg')";
+    }else{
+        jsonOutputElement.classList.add("neon-textarea")
+        jsonInputElement.classList.add("neon-textarea")
+        buttons.classList.add("gap-500");
+        body.style.backgroundColor = "none";
+        body.style.backgroundImage = "url('./img/ada.jpg')";
     }
 }
