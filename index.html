@@ -6,24 +6,25 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<h1>JSON Parse Formatter</h1>
+<h1 class="neon-text">JSON Toolkit</h1>
 <div class="buttons">
-    <button id="formatToString" class="format">Format String To Json</button>
-    <button id="formatToJson" class="format">Format JSON To Json</button>
+    <button id="formatToJson" class="format">Stringify Json Object</button>
+    <button id="formatToString" class="format">Parse String To Json Object</button>
 </div>
 
 <div class="moreActions">
     <button id="darkMode">dark mode</button>
     <button id="animeMode">Nes mode</button>
+    <button id="resident">Resident mode</button>
 </div>
 
 
 <div id="root">
     <div class="json-1">
-        <label for="jsonInput">Json Input</label><textarea id="jsonInput"></textarea>
+        <label for="jsonInput">Json Input</label><textarea id="jsonInput" class="neon-textarea"></textarea>
     </div>
     <div class="json-2">
-        <label for="jsonOutput">Json Output</label><textarea id="jsonOutput"></textarea>
+        <label for="jsonOutput">Json Output</label><textarea id="jsonOutput" class="neon-textarea"></textarea>
     </div>
 </div>
 
