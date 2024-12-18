@@ -1,0 +1,92 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Monospaced, Menlo, Monaco, Consolas, 'Courier New', monospace;
+}
+
+body{
+    background-color: #ffffff;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+h1 {
+    padding: 10px;
+    text-align: center;
+    color: rgba(96, 63, 14, 0.66);
+}
+
+#root {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    padding: 20px;
+    gap: 10px;
+    height: auto;
+}
+
+.json-1, .json-2 {
+    display: grid;
+}
+
+#jsonInput, #jsonOutput {
+    min-height: 800px;
+    padding: 20px;
+    line-height: 20px;
+    font-size: 18px;
+    resize: none;
+    background-color: rgba(255, 255, 255, 0.42);
+}
+
+
+#jsonOutput {
+    color: #038f3b;
+    font-weight: bold;
+    background-color: rgba(0, 0, 0, 0.79);
+}
+
+label {
+    font-size: 18px;
+    color: #9b42c6;
+    font-weight: bold;
+}
+
+.moreActions,
+.buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    padding: 0 20px;
+}
+
+.moreActions{
+    justify-content: flex-start;
+    &>button{
+        border: none;
+        padding: 10px;
+        cursor: pointer;
+        background-color: black;
+        color: white;
+    }
+}
+
+.format {
+    cursor: pointer;
+    padding: 10px;
+    background-color: #038f3b;
+    color: white;
+    border: none;
+    font-size: 16px;
+    font-weight: bold;
+
+    &:hover {
+        background-color: rgb(4, 104, 44);
+    }
+}
+
+.dark-mode{
+    background-color: white!important;
+    color: black!important;
+}
