@@ -1,6 +1,7 @@
 // Find the <pre> element and set its content
 const jsonOutputElement = document.getElementById("jsonOutput");
 const jsonInputElement = document.getElementById("jsonInput");
+const API_URL = "https://api.api-ninjas.com/v1/quotes";
 
 const formatToString = document.getElementById("formatToString");
 const root = document.getElementById("root");
@@ -97,7 +98,7 @@ function render() {
     if (localStorage.getItem("mode") === '1') {
 
         body.style.backgroundColor = "white";
-        root.style.backgroundColor = "black";
+        root.style.backgroundColor = "#393e46";
         body.style.backgroundImage = "none";
     } else if (localStorage.getItem("mode") === '2') {
 
@@ -112,7 +113,7 @@ function render() {
         body.style.backgroundColor = "none";
         root.style.backgroundColor = "transparent";
         body.style.backgroundImage = "url('./img/ada.jpg')";
-        body.style.backgroundPositionY = "50px";
+        body.style.backgroundPositionY = "120px";
         addClassToArrayHtmlElements("shadowed", globalTextArea,);
     }
 }
@@ -169,7 +170,7 @@ function activateButton(buttons, activeButton) {
     activeButton.style.backgroundColor = "#f96d00";
     buttons.forEach(button => {
         if(button.id !== activeButton.id){
-            button.style.backgroundColor = "black";
+            button.style.backgroundColor = "#393e46";
         }
     });
 }
