@@ -65,9 +65,10 @@ h1 {
 
 #root {
     display: grid;
-    grid-template-columns: calc(50% - 40px) 60px calc(50% - 40px);
+    grid-template-columns: calc(50% - 30px) 50px calc(50% - 30px);
+    justify-content: space-between;
     padding: 20px;
-    gap: 10px;
+    gap: 5px;
     height: auto;
     background-color: black;
 }
@@ -109,34 +110,16 @@ label {
 
 .moreActions{
     display: flex;
-    justify-content: center;
     align-items: center;
     gap: 20px;
     padding:  20px;
-}
-
-.moreActions{
     justify-content: flex-start;
+    background-color: #f2f2f2;
     &>button{
         border: none;
         padding: 10px;
         cursor: pointer;
-        background-color: black;
         color: white;
-    }
-}
-
-.format {
-    cursor: pointer;
-    padding: 10px;
-    background-color: #038f3b;
-    color: white;
-    border: none;
-    font-size: 16px;
-    font-weight: bold;
-
-    &:hover {
-        background-color: rgb(4, 104, 44);
     }
 }
 
@@ -203,4 +186,8 @@ label {
 
 .shadowed{
     background-color: rgba(255, 255, 255, 0.86)!important;
+}
+
+.btn{
+    background-color: #393e46;
 }
