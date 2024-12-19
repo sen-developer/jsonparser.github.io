@@ -8,6 +8,7 @@ const formatToJson = document.getElementById("formatToJson");
 const darkMode = document.getElementById("darkMode");
 const animeMode = document.getElementById("animeMode");
 const resident = document.getElementById("resident");
+const buttons = document.querySelectorAll(".btn");
 
 const body = document.body;
 let globalTextArea = document.querySelectorAll('.globalTextArea');
@@ -61,17 +62,21 @@ darkMode.addEventListener("click", (e) => {
     e.preventDefault();
     body.style.backgroundImage = "none";
     localStorage.setItem("mode", "1");
+
     render();
+    activateButton(buttons, darkMode);
 })
 
 animeMode.addEventListener("click", (e) => {
     e.preventDefault();
     localStorage.setItem("mode", "2");
+    activateButton(buttons, animeMode);
     render();
 });
 
 resident.addEventListener("click", (e) => {
     e.preventDefault();
+    activateButton(buttons, resident);
     localStorage.setItem("mode", "3");
     render();
 });
@@ -150,4 +155,14 @@ function addClassToArrayHtmlElements(className, arr, add = true) {
             arr[i].classList.remove(className);
         }
     }
+}
+
+function activateButton(buttons, activeButton) {
+
+    activeButton.style.backgroundColor = "#f96d00";
+    buttons.forEach(button => {
+        if(button.id !== activeButton.id){
+            button.style.backgroundColor = "black";
+        }
+    });
 }
