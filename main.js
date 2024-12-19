@@ -8,6 +8,7 @@ const formatToJson = document.getElementById("formatToJson");
 const darkMode = document.getElementById("darkMode");
 const animeMode = document.getElementById("animeMode");
 const resident = document.getElementById("resident");
+const reset = document.getElementById("reset");
 const buttons = document.querySelectorAll(".btn");
 
 const body = document.body;
@@ -73,6 +74,12 @@ animeMode.addEventListener("click", (e) => {
     activateButton(buttons, animeMode);
     render();
 });
+
+reset.addEventListener('click', (e) => {
+    e.preventDefault();
+    jsonOutputElement.value = '';
+    jsonInputElement.value = '';
+})
 
 resident.addEventListener("click", (e) => {
     e.preventDefault();

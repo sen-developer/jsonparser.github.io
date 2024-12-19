@@ -11,7 +11,7 @@ header{
 button{
     cursor: pointer;
 }
-
+#reset,
 #formatToString,
 #formatToJson{
     width: 30px;
@@ -19,6 +19,20 @@ button{
     background-repeat: no-repeat;
     background-size: cover;
     background-image: url("./img/transform.png");
+}
+
+#reset{
+    background-image: none;
+    font-size: 25px;
+    font-family: "JetBrains Mono SemiBold", monospace;
+    background-color: black;
+    color: rgba(248, 105, 105, 0.67);
+    transition-duration: 0.4s;
+    border: none;
+    &:hover{
+        color: white;
+        transition-duration: 0.4s;
+    }
 }
 
 #formatToJson{
