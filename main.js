@@ -38,9 +38,9 @@ formatToString.addEventListener("click", (e) => {
         }
 
         const formattedJson = JSON.stringify(jsonData, null, 2);
-        jsonOutputElement.innerHTML = formattedJson;
+        jsonOutputElement.value = formattedJson;
     } catch (e) {
-        jsonOutputElement.textContent = e.message;
+        jsonOutputElement.value = e.message;
     }
 
 })
@@ -55,7 +55,7 @@ formatToJson.addEventListener("click", (e) => {
         jsonInputElement.value = JSON.stringify(jsonOutputElement.value.replace(/\s+/g, ' ').trim());
 
     } catch (e) {
-        jsonInputElement.textContent = e.message;
+        jsonInputElement.value = e.message;
     }
 })
 
