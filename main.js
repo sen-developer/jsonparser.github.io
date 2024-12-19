@@ -11,6 +11,9 @@ const resident = document.getElementById("resident");
 const buttons = document.querySelector(".buttons");
 const body = document.body;
 
+const month = new Date().getMonth();
+const monthsForSnow = [1,2,11,12];
+
 if(localStorage.getItem('mode') === null){
     localStorage.setItem("mode", '0');
 }
@@ -95,4 +98,38 @@ function render() {
         body.style.backgroundColor = "none";
         body.style.backgroundImage = "url('./img/ada.jpg')";
     }
+}
+
+
+if(monthsForSnow.includes(month)){
+    snow();
+}
+
+
+function snow(){
+    const snowContainer = document.getElementById('snow');
+
+    // Function to create a snowflake
+    function createSnowflake() {
+        const snowflake = document.createElement('div');
+        snowflake.classList.add('snowflake');
+
+        // Randomize size and position
+        const size = Math.random() * 10 + 5 + 'px';
+        snowflake.style.width = size;
+        snowflake.style.height = size;
+        snowflake.style.left = Math.random() * window.innerWidth + 'px';
+        snowflake.style.animationDuration = Math.random() * 3 + 2 + 's'; // Random fall duration
+        snowflake.style.animationDelay = Math.random() * 2 + 's'; // Random start delay
+
+        snowContainer.appendChild(snowflake);
+
+        // Remove the snowflake after animation ends
+        setTimeout(() => {
+            snowflake.remove();
+        }, 5000);
+    }
+
+    // Generate snowflakes continuously
+    setInterval(createSnowflake, 100); // Add a new snowflake every 100ms
 }
