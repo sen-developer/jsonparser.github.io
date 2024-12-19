@@ -49,7 +49,7 @@ formatToJson.addEventListener("click", (e) => {
         throw new Error("Empty JSON Input");
     }
     try {
-        jsonInputElement.value = JSON.stringify(jsonOutputElement.value.replace(/\s+/g, '').trim());
+        jsonInputElement.value = JSON.stringify(jsonOutputElement.value.replace(/\s+/g, ' ').trim());
 
     } catch (e) {
         jsonInputElement.textContent = e.message;
