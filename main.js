@@ -3,18 +3,19 @@ const jsonOutputElement = document.getElementById("jsonOutput");
 const jsonInputElement = document.getElementById("jsonInput");
 
 const formatToString = document.getElementById("formatToString");
+const root = document.getElementById("root");
 const formatToJson = document.getElementById("formatToJson");
 const darkMode = document.getElementById("darkMode");
 const animeMode = document.getElementById("animeMode");
 const resident = document.getElementById("resident");
 
-const buttons = document.querySelector(".buttons");
 const body = document.body;
+let globalTextArea = document.querySelectorAll('.globalTextArea');
 
 const month = new Date().getMonth();
-const monthsForSnow = [1,2,11,12];
+const monthsForSnow = [1, 2, 11, 12];
 
-if(localStorage.getItem('mode') === null){
+if (localStorage.getItem('mode') === null) {
     localStorage.setItem("mode", '0');
 }
 
@@ -59,8 +60,7 @@ formatToJson.addEventListener("click", (e) => {
 darkMode.addEventListener("click", (e) => {
     e.preventDefault();
     body.style.backgroundImage = "none";
-    const isDark = darkMode.classList.toggle("dark-mode") === true;
-    isDark ? localStorage.setItem("mode", "0") : localStorage.setItem("mode", "1");
+    localStorage.setItem("mode", "1");
     render();
 })
 
@@ -77,36 +77,41 @@ resident.addEventListener("click", (e) => {
 });
 
 function render() {
-    buttons.classList.remove("gap-500");
+
     jsonOutputElement.classList.remove("neon-textarea")
     jsonInputElement.classList.remove("neon-textarea")
-    if (localStorage.getItem("mode") === '0') {
-        body.style.backgroundColor = "black";
-        darkMode.classList.add("dark-mode");
-        darkMode.innerText = "White Mode";
-    } else if (localStorage.getItem("mode") === '1') {
+    addClassToArrayHtmlElements("shadowed", globalTextArea, false);
+
+    if (localStorage.getItem("mode") === '1') {
+
         body.style.backgroundColor = "white";
-        darkMode.innerText = "Dark Mode";
-        darkMode.classList.remove("dark-mode");
-    } else if(localStorage.getItem("mode") === '2'){
+        root.style.backgroundColor = "black";
+        body.style.backgroundImage = "none";
+    } else if (localStorage.getItem("mode") === '2') {
+
         body.style.backgroundColor = "none";
+        root.style.backgroundColor = "transparent";
         body.style.backgroundImage = "url('./img/anime.jpg')";
-    }else{
+        addClassToArrayHtmlElements("shadowed", globalTextArea,);
+    } else {
+
         jsonOutputElement.classList.add("neon-textarea")
         jsonInputElement.classList.add("neon-textarea")
-        buttons.classList.add("gap-500");
         body.style.backgroundColor = "none";
+        root.style.backgroundColor = "transparent";
         body.style.backgroundImage = "url('./img/ada.jpg')";
+        body.style.backgroundPositionY = "50px";
+        addClassToArrayHtmlElements("shadowed", globalTextArea,);
     }
 }
 
 
-if(monthsForSnow.includes(month)){
+if (monthsForSnow.includes(month)) {
     snow();
 }
 
 
-function snow(){
+function snow() {
     const snowContainer = document.getElementById('snow');
 
     // Function to create a snowflake
@@ -132,4 +137,17 @@ function snow(){
 
     // Generate snowflakes continuously
     setInterval(createSnowflake, 100); // Add a new snowflake every 100ms
+}
+
+function addClassToArrayHtmlElements(className, arr, add = true) {
+    if(!arr){
+        return;
+    }
+    for (let i = 0; i < arr.length; i++) {
+        if(add){
+            arr[i].classList.add(className);
+        }else{
+            arr[i].classList.remove(className);
+        }
+    }
 }

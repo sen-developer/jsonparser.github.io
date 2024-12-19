@@ -6,14 +6,13 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<h1 class="neon-text">JSON Toolkit</h1>
-<div class="buttons">
-    <button id="formatToJson" class="format">Stringify Json Object</button>
-    <button id="formatToString" class="format">Parse String To Json Object</button>
-</div>
+
+<header>
+    <h1 class="neon-text">JSON Toolkit</h1>
+</header>
 
 <div class="moreActions">
-    <button id="darkMode">dark mode</button>
+    <button id="darkMode">Default mode</button>
     <button id="animeMode">Nes mode</button>
     <button id="resident">Resident mode</button>
     <audio class="music" controls loop autoplay>
@@ -23,12 +22,19 @@
 
 <div id="root">
     <div class="json-1">
-        <label for="jsonInput">Json Input</label><textarea id="jsonInput" class="neon-textarea"></textarea>
+        <label for="jsonInput"></label><textarea id="jsonInput" class="neon-textarea globalTextArea"></textarea>
     </div>
+
+    <div class="transforms">
+        <button id="formatToString"></button>
+        <button id="formatToJson"></button>
+    </div>
+
     <div class="json-2">
-        <label for="jsonOutput">Json Output</label><textarea id="jsonOutput" class="neon-textarea"></textarea>
+        <label for="jsonOutput"></label><textarea id="jsonOutput" class="neon-textarea globalTextArea"></textarea>
     </div>
 </div>
+
 <div class="snow" id="snow"></div>
 <script type="module" src="main.js"></script>
 </body>
